@@ -1,4 +1,4 @@
-function HomePage() {
+const HomePage = ()  => {
   return <div>Welcome to Next.js!</div>
 }
 
