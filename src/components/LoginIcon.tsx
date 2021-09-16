@@ -7,7 +7,7 @@ import styles from "./LoginIcon.module.scss";
 import PERSON_OUTLINE from "../../public/icons/person_outline.svg";
 const LoginIcon: FC = (): ReactElement => {
   return (
-    <div className="xl:w-20 xl:h-20 w-10 h-10 opacity-50">
+    <div className="lg:w-20 lg:h-20 w-10 h-10 opacity-50">
       <Image
         src={PERSON_OUTLINE}
         className={`${styles.LoginIcon} rounded-full object-cover`}
