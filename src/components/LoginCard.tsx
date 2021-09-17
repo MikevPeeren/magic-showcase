@@ -4,11 +4,10 @@ import Input from "./Input";
 import LoginIcon from "./LoginIcon";
 import SubmitButton from "./SubmitButton";
 
-// w-5/6 h-5/6 md:w-2/4 md:h-2/4 lg:w-1/4 sm:w-3/4 sm:h-2/4
 const LoginCard: FC = (): ReactElement => {
   return (
-    <div className="bg-white xl:w-2/6 xl:h-3/5 h-3/4 sm:w-2/4 w-4/5 rounded-2xl">
-      <div className="w-full h-full text-center flex flex-col justify-center items-center">
+    <div className="bg-white h-3/4 w-3/4 md:h-3/5 lg:h-2/4 lg:w-2/4 xl:w-3/4 xl:h-4/5 2xl:w-1/4 2xl:h-2/4 rounded-2xl my-4">
+      <div className="m-auto h-full overflow-auto py-4 text-center flex flex-col justify-center items-center">
         <LoginIcon />
         <div className="py-4">
           <h1 className="font-bold lg:text-2xl tracking-wider">Welcome Back</h1>
