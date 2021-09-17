@@ -1,6 +1,12 @@
 import { ReactElement, FC } from "react";
 
-const Input: FC = ({ title, inputID, inputName }): ReactElement => {
+import { IInput } from "../../types";
+
+const Input: FC<IInput> = ({
+  title,
+  inputID,
+  inputName,
+}: IInput): ReactElement => {
   return (
     <input
       className="w-2/4 rounded-xl border p-2 mt-6"
