@@ -10,12 +10,13 @@ const SubmitButton: FC<ISubmitButton> = ({
   email,
 }: ISubmitButton): ReactElement => {
   const handleLogin = async (event: React.MouseEvent<HTMLElement>) => {
-    const redirectURI = "http://localhost:3000";
-
     if (email) {
       try {
         //@ts-ignore -> No types yet.
-        await magic?.auth?.loginWithMagicLink({ email, redirectURI });
+        await magic?.auth?.loginWithMagicLink({
+          email,
+          redirectURI: window.location.href,
+        });
       } catch (error) {}
     }
   };
