@@ -11,7 +11,7 @@ const LoginPage: FC = (): ReactElement => {
       <div className="py-4">
         <h1 className="font-bold lg:text-2xl tracking-wider">Welcome Back</h1>
         <h2 className="font-light lg:text-lg tracking-wide">
-          Let Magic do the Magic 🪄
+          Let Magic do the work 🪄
         </h2>
       </div>
       <Input title={"email"} inputID={"email"} inputName={"email"} />
