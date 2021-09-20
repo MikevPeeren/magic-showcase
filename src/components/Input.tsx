@@ -6,6 +6,7 @@ const Input: FC<IInput> = ({
   title,
   inputID,
   inputName,
+  inputChangedFunction,
 }: IInput): ReactElement => {
   return (
     <input
@@ -15,6 +16,7 @@ const Input: FC<IInput> = ({
       title={title}
       placeholder="mikevpeeren@hotmail.com"
       type="text"
+      onChange={inputChangedFunction}
       required
     />
   );

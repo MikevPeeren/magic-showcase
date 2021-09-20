@@ -1,6 +1,6 @@
 import { Magic } from "magic-sdk";
 
-const createMagic = (key) => {
+const createMagic = (key: string) => {
   return typeof window != "undefined" && new Magic(key);
 };
 

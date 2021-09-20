@@ -10,11 +10,9 @@ const SubmitButton: FC<ISubmitButton> = ({
   email,
 }: ISubmitButton): ReactElement => {
   const handleLogin = async (e) => {
-    const email = "mikevpeeren@hotmail.com";
     const redirectURI = "http://localhost:3000";
-    if (email) {
-      await magic.auth.loginWithMagicLink({ email, redirectURI });
-    }
+
+    if (email) await magic.auth.loginWithMagicLink({ email, redirectURI });
   };
 
   return (
