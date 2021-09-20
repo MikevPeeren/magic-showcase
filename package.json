@@ -1,5 +1,6 @@
 {
   "name": "magic-showcase",
+  "description": "A Magic Showcase",
   "license": "MIT",
   "scripts": {
     "dev": "next dev",

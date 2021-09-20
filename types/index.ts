@@ -1,8 +1,10 @@
+import { ChangeEventHandler } from "react";
+
 export interface IInput {
   title: string;
   inputID: string;
   inputName: string;
-  inputChangedFunction: Function;
+  inputChangedFunction: ChangeEventHandler<HTMLInputElement>;
 }
 
 export interface ISubmitButton {

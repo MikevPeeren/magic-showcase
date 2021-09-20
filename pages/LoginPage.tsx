@@ -10,8 +10,8 @@ const LoginPage: FC = (): ReactElement => {
   const [email, setEmail] = useState("");
   const debouncedEmail = useDebounce(email, 300);
 
-  const inputChangedFunction = (event) => {
-    setEmail(event.target.value);
+  const inputChangedFunction = (event: React.ChangeEvent<HTMLInputElement>) => {
+    setEmail(event?.target?.value);
   };
 
   return (

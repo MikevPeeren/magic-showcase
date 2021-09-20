@@ -9,10 +9,15 @@ import { ISubmitButton } from "../../types";
 const SubmitButton: FC<ISubmitButton> = ({
   email,
 }: ISubmitButton): ReactElement => {
-  const handleLogin = async (e) => {
+  const handleLogin = async (event: React.MouseEvent<HTMLElement>) => {
     const redirectURI = "http://localhost:3000";
 
-    if (email) await magic.auth.loginWithMagicLink({ email, redirectURI });
+    if (email) {
+      try {
+        //@ts-ignore -> No types yet.
+        await magic?.auth?.loginWithMagicLink({ email, redirectURI });
+      } catch (error) {}
+    }
   };
 
   return (

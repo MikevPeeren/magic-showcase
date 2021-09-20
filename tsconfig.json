@@ -16,6 +16,6 @@
     "importHelpers": true,
     "removeComments": true
   },
-  "include": ["next-env.d.ts", "**/*.ts", "**/*.tsx"],
+  "include": ["next-env.d.ts", "src/**/*", "pages/**/*"],
   "exclude": ["node_modules"]
 }
