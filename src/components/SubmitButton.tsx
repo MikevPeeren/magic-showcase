@@ -3,19 +3,18 @@ import Router from "next/router";
 
 import styles from "./SubmitButton.module.scss";
 
-import { magic } from "../../lib/magic.ts";
-import { UserContext } from "../../lib/UserContext.ts";
+import { magic } from "../../lib/magic";
+import { UserContext } from "../../lib/UserContext";
 
 import { ISubmitButton } from "../../types";
 
-import Loading from "../src/components/LoadingIcon";
 import LoadingIcon from "./LoadingIcon";
 
 const SubmitButton: FC<ISubmitButton> = ({
   email,
   setIsLoading,
 }: ISubmitButton): ReactElement => {
-  const [user, setUser] = useContext(UserContext);
+  const { user, setUser } = useContext(UserContext);
 
   const handleLogin = async (event: React.MouseEvent<HTMLElement>) => {
     setIsLoading(true);
@@ -27,10 +26,11 @@ const SubmitButton: FC<ISubmitButton> = ({
           redirectURI: window.location.href,
         });
         //@ts-ignore -> No types yet.
-        let userMetadata = await magic?.user
-          ?.getMetadata()
-          .then((userData) => setUser(userData));
-        Router.push("/ProfilePage");
+        await magic?.user?.getMetadata().then((userData: any) => {
+          console.log(userData);
+          setUser(userData);
+        });
+        // Router.push("/ProfilePage");
       } catch (error) {
         console.log(error);
         setIsLoading(false);

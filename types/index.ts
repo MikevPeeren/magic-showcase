@@ -9,4 +9,5 @@ export interface IInput {
 
 export interface ISubmitButton {
   email: string;
+  setIsLoading: Function;
 }
