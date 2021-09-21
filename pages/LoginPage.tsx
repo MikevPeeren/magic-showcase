@@ -3,18 +3,22 @@ import { ReactElement, FC, useState } from "react";
 import Input from "../src/components/Input";
 import LoginIcon from "../src/components/LoginIcon";
 import SubmitButton from "../src/components/SubmitButton";
+import LoadingIcon from "../src/components/LoadingIcon";
 
 import useDebounce from "../src/custom-hooks/useDebounce";
 
 const LoginPage: FC = (): ReactElement => {
   const [email, setEmail] = useState("");
+  const [isLoading, setIsLoading] = useState(false);
   const debouncedEmail = useDebounce(email, 300);
 
   const inputChangedFunction = (event: React.ChangeEvent<HTMLInputElement>) => {
     setEmail(event?.target?.value);
   };
 
-  return (
+  return isLoading ? (
+    <LoadingIcon />
+  ) : (
     <div className="w-full h-full 2xl:w-2/4 overflow-auto my-4 text-center flex flex-col justify-center items-center">
       <LoginIcon />
       <div className="py-4">
@@ -29,7 +33,7 @@ const LoginPage: FC = (): ReactElement => {
         inputName={"email"}
         inputChangedFunction={inputChangedFunction}
       />
-      <SubmitButton email={debouncedEmail} />
+      <SubmitButton email={debouncedEmail} setIsLoading={setIsLoading} />
     </div>
   );
 };
