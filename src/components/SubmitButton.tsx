@@ -1,5 +1,5 @@
 import { ReactElement, FC, useState, useContext } from "react";
-import Router from "next/router";
+import { useRouter } from "next/router";
 
 import styles from "./SubmitButton.module.scss";
 
@@ -14,6 +14,7 @@ const SubmitButton: FC<ISubmitButton> = ({
   email,
   setIsLoading,
 }: ISubmitButton): ReactElement => {
+  const router = useRouter();
   const { user, setUser } = useContext(UserContext);
 
   const handleLogin = async (event: React.MouseEvent<HTMLElement>) => {
@@ -26,11 +27,15 @@ const SubmitButton: FC<ISubmitButton> = ({
           redirectURI: window.location.href,
         });
         //@ts-ignore -> No types yet.
-        await magic?.user?.getMetadata().then((userData: any) => {
-          console.log(userData);
-          setUser(userData);
-        });
-        // Router.push("/ProfilePage");
+        await magic?.user
+          ?.getMetadata()
+          .then((userData: { email: string; issuer: string }) => {
+            setUser(userData);
+            router.push(
+              `/ProfilePage?email=${userData?.email}&issuer=${userData?.issuer}`,
+              "profile"
+            );
+          });
       } catch (error) {
         console.log(error);
         setIsLoading(false);
