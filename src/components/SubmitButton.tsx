@@ -24,17 +24,12 @@ const SubmitButton: FC<ISubmitButton> = ({
         //@ts-ignore -> No types yet.
         await magic?.auth?.loginWithMagicLink({
           email,
-          redirectURI: window.location.href,
         });
         //@ts-ignore -> No types yet.
         await magic?.user
           ?.getMetadata()
           .then((userData: { email: string; issuer: string }) => {
             setUser(userData);
-            router.push(
-              `/ProfilePage?email=${userData?.email}&issuer=${userData?.issuer}`,
-              "profile"
-            );
           });
       } catch (error) {
         console.log(error);
