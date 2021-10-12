@@ -18,7 +18,7 @@
     "sass": "^1.42.1"
   },
   "devDependencies": {
-    "@types/node": "^16.10.3",
+    "@types/node": "^16.10.4",
     "@types/react": "^17.0.29",
     "autoprefixer": "^10.3.7",
     "eslint": "7.32.0",
